@@ -1,0 +1,78 @@
+
+<html>
+<head>
+    <title>Parkhaus</title>
+    <script type="text/javascript">
+        function Werteliste (querystring) {
+            if (querystring == '') return;
+            var wertestring = querystring.slice(1);
+            var paare = wertestring.split("&");
+</head>
+<body>
+
+
+<h1>Parkhaus</h1>
+<h2>Autos im Parkhaus:</h2>
+<h4>Anzahl Freie Parkplaetze:</h4>
+<p id="bereich1">
+</p>
+<button onclick="myFun()">Neues Auto in Parkhaus</button>
+<script>
+    var i=0;
+    var n = document.forms["frm1"];
+    var ParkhausSize=n.elements[0].value;
+    var PreisProStunde=2.5;
+    var arrayAuto=[];
+    var buttonBezahlen=[];
+    </script>
+<?php
+$Parkplaetzte = $_POST["plaetze"];
+?>
+<script>
+    ParkhausSize="<?php echo $Parkplaetzte; ?>";
+    function anzeigeParkplaetzte(){
+        document.getElementById("bereich1").innerText=""+ParkhausSize-i+"";
+        x();
+    }
+    function x(){document.getElementsByTagName('p')[0].innerText=""+ParkhausSize-i+"";}
+    document.getElementById("bereich1").innerText=""+ParkhausSize-i+"";
+    var Auto=function () {
+        this.id=Math.random();
+        this.date=new Date();
+        function Getid() {
+            return this.id;
+        }
+    }
+
+    function myFun() {
+        if(i<ParkhausSize) {
+
+            i=i+1;
+            x();
+            a=new Auto();
+            arrayAuto.push(a);
+            var para = document.createElement("P");
+            var para1=document.createElement("Button");
+            para1.setAttribute("id",""+i-1+"");
+            buttonBezahlen.push(para1);
+            para.innerText = "Auto (id: " + a.id + ") Ankunftszeit:("+a.date+")";
+            para1.innerText=("Bezahlen und Parkaus verlassen");
+            document.body.appendChild(para);
+            document.body.appendChild(para1);
+        }
+        else
+        {
+            window.alert("Das Parkhaus ist voll");
+        }
+
+
+
+    }
+    function bezahlen(a) {
+        var paratest=document.createElement("P");
+        paratest.innerText("bezahlt");
+        document.body.appendChild(paratest);
+    }
+</script>
+</body>
+</html>
