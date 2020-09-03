@@ -1,0 +1,14 @@
+
+h1 {
+    color: blue;
+    font-family: verdana;
+    font-size: 300%;
+  }
+
+  .clock {
+
+    font-size: 40px;
+    font-family: Orbitron;
+    letter-spacing: 3px;
+
+  }
